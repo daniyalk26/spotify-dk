@@ -5,11 +5,13 @@ import pandas as pd
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+
 
 from spotify_etl import authenticate_and_extract
 
-AWS_ACCESS_KEY_ID = 'AKIAR7FDBHJAAZAARSOU'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 REGION = 'us-east-2'
 PROCESSED_BUCKET = 'spotify-processed-data-dk'
 

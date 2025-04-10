@@ -5,16 +5,17 @@ import boto3
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
-CLIENT_ID = '2cabce24156843b9975f6e3f0c833f72'
-CLIENT_SECRET = '4aaee9edaf2e45bcb607938e53ba3775'
+
+CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
+CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
 REDIRECT_URI = 'http://localhost:8888/callback'
 SCOPE = 'user-read-private user-top-read user-read-recently-played'
 
 S3_BUCKET = 'spotify-raw-data-dk'
 s3_client = boto3.client(
     's3',
-    aws_access_key_id='AKIAR7FDBHJAAZAARSOU',
-    aws_secret_access_key='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',
+    aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key= os.environ.get('AWS_SECRET_ACCESS_KEY'),
     region_name='us-east-2'
 )
 
