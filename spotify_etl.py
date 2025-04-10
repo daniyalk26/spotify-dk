@@ -16,7 +16,8 @@ s3_client = boto3.client(
     's3',
     aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID'),
     aws_secret_access_key= os.environ.get('AWS_SECRET_ACCESS_KEY'),
-    region_name='us-east-2'
+    region_name= os.environ.get('REGION', 'us-east-2')  # default if not set
+
 )
 
 def upload_to_s3(file_name, bucket, object_name=None):
